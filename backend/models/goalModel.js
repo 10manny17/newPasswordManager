@@ -7,10 +7,19 @@ const goalSchema = mongoose.Schema(
       required: true,
       ref: 'User',
     },
-    text: {
+    website: {
       type: String,
       required: [true, 'Please add a text value'],
     },
+    username: {
+      type: String,
+      required: [true, 'Please add a text value'],
+    },
+    password: {
+      type: String,
+      required: [true, 'Please add a text value'],
+    }
+
   },
   {
     timestamps: true,

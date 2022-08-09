@@ -1,3 +1,4 @@
+import React from 'react'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
@@ -17,7 +18,7 @@ function Dashboard() {
 
   useEffect(() => {
     if (isError) {
-      console.log(message)
+
     }
 
     if (!user) {
@@ -38,8 +39,8 @@ function Dashboard() {
   return (
     <>
       <section className='heading'>
-        <h1>Welcome {user && user.name}</h1>
-        <p>Goals Dashboard</p>
+        <h1>Welcome {user && user.firstname} </h1>
+        <p>Password Managers</p>
       </section>
 
       <GoalForm />

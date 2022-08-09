@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler')
-
+const bcrypt = require('bcryptjs')
 const Goal = require('../models/goalModel')
 const User = require('../models/userModel')
 
@@ -16,13 +16,21 @@ const getGoals = asyncHandler(async (req, res) => {
 // @route   POST /api/goals
 // @access  Private
 const setGoal = asyncHandler(async (req, res) => {
-  if (!req.body.text) {
+  const { website, username, password } = req.body
+
+  if (!website || !username || !password) {
+
     res.status(400)
-    throw new Error('Please add a text field')
+    throw new Error('Please add all fields')
   }
 
+  const salt = await bcrypt.genSalt(10)
+  const hashedPassword = await bcrypt.hash(password, salt)
+
   const goal = await Goal.create({
-    text: req.body.text,
+    website:req.body.website,
+    username:req.body.username,
+    password: hashedPassword,
     user: req.user.id,
   })
 

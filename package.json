@@ -1,7 +1,7 @@
 {
-  "name": "mern-tutorial",
+  "name": "Password Manager",
   "version": "1.0.0",
-  "description": "Goalsetter app for youtube tutorial",
+  "description": "Password Manager for Senior Deisgn Project",
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
